@@ -5,7 +5,6 @@ import { FaGraduationCap } from "react-icons/fa";
 import { MdSchool } from "react-icons/md";
 import { SiFuturelearn } from "react-icons/si";
 
-// Resume-based education data
 const educationList = [
   {
     title: "B.E - Computer Science Engineering",
@@ -52,7 +51,7 @@ const Education = () => {
       style={{ backgroundColor: "#0f0f2d", color: "#fff", padding: "80px 0" }}
     >
       <Container>
-        {/* Title */}
+        {/* Section Title */}
         <motion.h2
           className="text-center mb-3 display-5 fw-bold"
           initial={{ opacity: 0, y: -30 }}
@@ -63,34 +62,29 @@ const Education = () => {
           Education
         </motion.h2>
 
-        {/* Subtitle */}
+        {/* Section Description */}
         <motion.p
           className="text-center mb-5 fs-6 fw-bold"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
           viewport={{ once: true }}
-          style={{color:'#ccc'}}
+          style={{ color: "#ccc", maxWidth: "700px", margin: "0 auto" }}
         >
           My education has shaped my technical skills and career path. Here’s an overview of my academic and ongoing learning journey.
         </motion.p>
 
+        {/* Cards */}
         <Row className="justify-content-center gy-4">
           {educationList.map((edu, index) => (
-            <Col
-              key={index}
-              xs={12}
-              md={10}
-              lg={8}
-              className="d-flex justify-content-center"
-            >
+            <Col key={index} xs={12} md={10} lg={8}>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 whileHover={{ scale: 1.02 }}
                 transition={{
                   delay: index * 0.1,
-                  duration: 0.3,
+                  duration: 0.4,
                   type: "spring",
                   stiffness: 120,
                 }}
@@ -99,18 +93,16 @@ const Education = () => {
                   backgroundColor: "#1c1c3c",
                   borderRadius: "12px",
                   padding: "25px",
-                  width: "100%",
                   boxShadow: "0 0 15px 0 rgb(123, 0, 255)",
                   position: "relative",
                 }}
               >
-                {/* Right Vertical Line */}
+                {/* Vertical bar decoration */}
                 <div
                   style={{
                     position: "absolute",
                     top: "10%",
-                    right: "0",
-                    left:"100%",
+                    left: "100%",
                     height: "80%",
                     width: "5px",
                     backgroundColor: "#7b00ff",
@@ -118,19 +110,15 @@ const Education = () => {
                   }}
                 />
 
-                {/* Icon and Text */}
+                {/* Card content */}
                 <div style={{ fontSize: "2rem", marginBottom: "10px" }}>
                   {edu.icon}
                 </div>
                 <h5 className="fw-bold mb-1">{edu.institution}</h5>
                 <p className="text-info mb-1">{edu.title}</p>
-                <p className="mb-1">
-                  <strong>{edu.duration}</strong>
-                </p>
+                <p className="mb-1"><strong>{edu.duration}</strong></p>
                 {edu.grade && (
-                  <p className="mb-2">
-                    <strong>{edu.grade}</strong>
-                  </p>
+                  <p className="mb-2"><strong>{edu.grade}</strong></p>
                 )}
                 <p style={{ fontSize: "0.95rem", lineHeight: "1.6" }}>
                   {edu.description}

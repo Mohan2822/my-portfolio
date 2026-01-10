@@ -7,21 +7,33 @@ import devfolioIcon from "../assets/devfolio (1).svg";
 
 const About = () => {
   return (
-    <div id="About" style={{ backgroundColor: "#0f0f2d", minHeight: "100vh", color: "white" }}>
+    <div
+      id="About"
+      style={{
+        backgroundColor: "#0f0f2d",
+        minHeight: "100vh",
+        color: "white",
+        overflowX: "hidden",
+      }}
+    >
       {/* Navbar */}
       <Navbar
         fixed="top"
         expand="md"
         variant="dark"
-        className="px-5 py-2"
+        className="px-4 py-2"
         style={{
           backgroundColor: "rgba(15, 15, 45, 0.6)",
           backdropFilter: "blur(10px)",
           WebkitBackdropFilter: "blur(10px)",
-          borderBottom: "1px solid rgba(255,255,255,0.1)"
+          borderBottom: "1px solid rgba(255,255,255,0.1)",
         }}
       >
-        <Navbar.Brand href="#" className="d-flex align-items-center" aria-label="Devfolio Home">
+        <Navbar.Brand
+          href="#"
+          className="d-flex align-items-center"
+          aria-label="Devfolio Home"
+        >
           <img
             src={devfolioIcon}
             alt="Devfolio logo"
@@ -37,19 +49,34 @@ const About = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto fw-semibold">
-            <Nav.Link href="#About" className="text-white mx-2">About</Nav.Link>
-            <Nav.Link href="#Skills" className="text-white mx-2">Skills</Nav.Link>       
-            <Nav.Link href="#Visionary" className="text-white mx-2">Visionary</Nav.Link>
-            <Nav.Link href="#Projects" className="text-white mx-2">Projects</Nav.Link>
-            <Nav.Link href="#Education" className="text-white mx-2">Education</Nav.Link>
-            <Nav.Link href="#Contact" className="text-white mx-2">Contact</Nav.Link>
+            <Nav.Link href="#About" className="text-white mx-2">
+              About
+            </Nav.Link>
+            <Nav.Link href="#Skills" className="text-white mx-2">
+              Skills
+            </Nav.Link>
+            <Nav.Link href="#Visionary" className="text-white mx-2">
+              Visionary
+            </Nav.Link>
+            <Nav.Link href="#Projects" className="text-white mx-2">
+              Projects
+            </Nav.Link>
+            <Nav.Link href="#Education" className="text-white mx-2">
+              Education
+            </Nav.Link>
+            <Nav.Link href="#Contact" className="text-white mx-2">
+              Contact
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
 
       {/* Hero/About Section */}
       <Container fluid style={{ paddingTop: "100px" }}>
-        <Row className="align-items-center justify-content-center px-5" style={{ minHeight: "80vh" }}>
+        <Row
+          className="align-items-center justify-content-center px-3 px-md-5"
+          style={{ minHeight: "80vh" }}
+        >
           {/* Left Side - Text */}
           <Col md={6} className="text-center text-md-start">
             <motion.h1
@@ -57,9 +84,9 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               style={{
-                fontSize: "3.5rem",
+                fontSize: "clamp(2rem, 5vw, 3.5rem)",
                 fontWeight: "800",
-                marginBottom: "10px"
+                marginBottom: "10px",
               }}
             >
               Hi, I am <br />
@@ -71,11 +98,11 @@ const About = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
               style={{
-                fontSize: "1.8rem",
+                fontSize: "clamp(1.1rem, 4vw, 1.8rem)",
                 fontWeight: "700",
                 color: "#a34efc",
                 marginBottom: "20px",
-                minHeight: "40px"
+                minHeight: "40px",
               }}
             >
               <ReactTyped
@@ -87,18 +114,23 @@ const About = () => {
             </motion.h4>
 
             <motion.p
-            className="p fw-semibold"
+              className="p fw-semibold"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 1 }}
               style={{
-                fontSize: "1.1rem",
+                fontSize: "clamp(0.95rem, 2.5vw, 1.1rem)",
                 color: "#d3d3d3",
                 lineHeight: "1.7",
-                maxWidth: "550px"
+                maxWidth: "550px",
               }}
             >
-              I’m a fresher front-end developer with skills in HTML, CSS, JavaScript, jQuery, and React. I enjoy creating responsive and interactive web interfaces, and I'm currently learning full-stack development with Java. I’ve built several practical web projects using modern tools, and I’m eager to keep learning and growing in web development.
+              I’m a fresher front-end developer with skills in HTML, CSS,
+              JavaScript, jQuery, and React. I enjoy creating responsive and
+              interactive web interfaces, and I'm currently learning full-stack
+              development with Java. I’ve built several practical web projects
+              using modern tools, and I’m eager to keep learning and growing in
+              web development.
             </motion.p>
 
             <motion.div
@@ -107,7 +139,7 @@ const About = () => {
               transition={{ delay: 1.5, duration: 0.5 }}
             >
               <a
-                href="/K-Mohan-CV.pdf"
+                href="https://drive.google.com/file/d/130tXfJ6GZL4qlbtWJcSkDfR58TsDTq0r/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn mt-4"
@@ -115,11 +147,11 @@ const About = () => {
                   backgroundColor: "#a34efc",
                   color: "white",
                   fontWeight: "600",
-                  fontSize: "1rem",
-                  padding: "12px 32px",
+                  fontSize: "clamp(0.85rem, 2.5vw, 1rem)",
+                  padding: "12px 28px",
                   borderRadius: "40px",
                   boxShadow: "0 0 10px #a34efc",
-                  border: "none"
+                  border: "none",
                 }}
               >
                 View Resume
@@ -138,13 +170,14 @@ const About = () => {
                 src={profile}
                 alt="K. Mohan"
                 title="K. Mohan"
+                loading="lazy"
                 className="rounded-circle"
                 style={{
-                  width: "360px",
-                  height: "360px",
+                  width: "clamp(220px, 60vw, 360px)",
+                  height: "clamp(220px, 60vw, 360px)",
                   border: "4px solid #a34efc",
                   objectFit: "cover",
-                  boxShadow: "0 0 20px rgba(163, 78, 252, 0.6)"
+                  boxShadow: "0 0 20px rgba(163, 78, 252, 0.6)",
                 }}
               />
             </motion.div>

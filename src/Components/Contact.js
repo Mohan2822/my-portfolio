@@ -11,8 +11,8 @@ const ContactForm = () => {
 
     emailjs
       .sendForm(
-        'service_dfie64b', // ✅ Your EmailJS service ID
-        'template_66kcfl8', // ✅ Template ID
+        'service_dfie64b', // ✅ Your EmailJS Service ID
+        'template_66kcfl8', // ✅ Your Template ID
         formRef.current,
         'atH9AMr0yxhZGvtUn' // ✅ Your Public Key
       )
@@ -66,35 +66,60 @@ const ContactForm = () => {
               >
                 <h4 className="text-white mb-4">Email Me</h4>
                 <Form ref={formRef} onSubmit={sendEmail}>
-                  {['name', 'email', 'subject', 'message'].map((field, index) => (
-                    <motion.div
-                      key={field}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.1 * index }}
-                    >
-                      <Form.Group className="mb-3">
-                        <Form.Control
-                          as={field === 'message' ? 'textarea' : 'input'}
-                          type={field !== 'message' ? (field === 'email' ? 'email' : 'text') : undefined}
-                          name={field}
-                          rows={field === 'message' ? 4 : undefined}
-                          placeholder={
-                            field === 'name'
-                              ? 'Your Name'
-                              : field === 'email'
-                              ? 'Your Email'
-                              : field === 'subject'
-                              ? 'Subject'
-                              : 'Message'
-                          }
-                          required={field !== 'subject'}
-                          className="custom-placeholder"
-                          style={inputStyle}
-                        />
-                      </Form.Group>
-                    </motion.div>
-                  ))}
+                  <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
+                    <Form.Group className="mb-3">
+                      <Form.Control
+                        type="text"
+                        name="name"
+                        placeholder="Your Name"
+                        required
+                        className="custom-placeholder"
+                        style={inputStyle}
+                      />
+                    </Form.Group>
+                  </motion.div>
+
+                  <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
+                    <Form.Group className="mb-3">
+                      <Form.Control
+                        type="email"
+                        name="user_email" // ✅ Updated for auto-reply
+                        placeholder="Your Email"
+                        required
+                        className="custom-placeholder"
+                        style={inputStyle}
+                      />
+                    </Form.Group>
+                  </motion.div>
+
+                  <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
+                    <Form.Group className="mb-3">
+                      <Form.Control
+                        type="text"
+                        name="subject"
+                        placeholder="Subject"
+                        className="custom-placeholder"
+                        style={inputStyle}
+                      />
+                    </Form.Group>
+                  </motion.div>
+
+                  <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
+                    <Form.Group className="mb-4">
+                      <Form.Control
+                        as="textarea"
+                        rows={4}
+                        name="message"
+                        placeholder="Message"
+                        required
+                        className="custom-placeholder"
+                        style={inputStyle}
+                      />
+                    </Form.Group>
+                  </motion.div>
+
+                  {/* Optional: add time field if needed by your EmailJS template */}
+                  <input type="hidden" name="time" value={new Date().toLocaleString()} />
 
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Button
